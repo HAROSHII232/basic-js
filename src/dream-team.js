@@ -18,8 +18,7 @@ function createDreamTeam(members) {
 
   return members
     .filter(elem => typeof elem == 'string')
-    .map(elem => elem.trim())
-    .map(elem => elem[0].toUpperCase())
+    .map(elem => elem.trim()[0].toUpperCase())
     .sort()
     .join('')
 }
