@@ -22,28 +22,18 @@ function getMatrixElementsSum(matrix) {
 
   let result = 0;
 
-  for (let i = 0; i < columnCountLength; i++) {
-    for (let j = 0; j < rowCountLength; j++) {
-      let columnItem = matrix[j][i];
-      
-      if (columnItem === 0) {
-        break;
-      } else {
+  for (let col = 0; col < columnCountLength; col++) {
+    for (let row = 0; row < rowCountLength; row++) {
+      let columnItem = matrix[row][col];
+
+      if (row === 0 || matrix[row - 1][col] !== 0) {
         result += columnItem;
-      }
+      } 
     }
   }
 
   return result;
 }
-
-console.log(
-  getMatrixElementsSum([
-    [0, 1, 1, 2],
-    [0, 5, 0, 0],
-    [2, 0, 3, 3],
-  ])
-);
 
 module.exports = {
   getMatrixElementsSum,
